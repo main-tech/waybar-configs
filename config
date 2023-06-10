@@ -10,6 +10,7 @@
     "modules-right": [ "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
      //Modules configuration
      "wlr/workspaces": {
+         "on-click": "activate",
          "disable-scroll": true,
          "all-outputs": true,
          "format": "{name}: {icon}",
@@ -21,7 +22,7 @@
              "5": "\uf04b",
              "urgent": "",
              "focused": "",
-             "default": ""
+             "default": "",
          }
      },
     "keyboard-state": {
