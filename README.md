@@ -10,4 +10,5 @@ Before using this configuration, ensure that you have the following prerequisite
 - otf-font-awesome package
 
 The `otf-font-awesome` package is required to display icons correctly in Waybar. Please make sure it is installed on your system.
+
 Also make sure the session user is in the input group
