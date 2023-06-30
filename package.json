@@ -1,0 +1,22 @@
+{
+  "name": "main-tech_config",
+  "version": "1.0.0",
+  "description": "This repository contains the configuration files for Waybar, a customizable status bar for Wayland.",
+  "main": "   ",
+  "scripts": {
+    "test": "  "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/main-tech/waybar-configs.git"
+  },
+  "author": "Mandela Mitau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/main-tech/waybar-configs/issues"
+  },
+  "homepage": "https://github.com/main-tech/waybar-configs#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
