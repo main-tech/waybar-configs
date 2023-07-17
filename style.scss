@@ -11,8 +11,8 @@
 }
 
 window#waybar {
-  background-color: rgba(4, 0, 0, 1);
-  border-bottom: 4px solid rgba(4, 0, 0, 0.9);
+  background-color: rgba(5, 0, 0, 1);
+  border-bottom: 4px solid rgba(5, 0, 0, 0.9);
   color: #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -120,7 +120,6 @@ button:hover {
 #battery.charging,
 #battery.plugged {
     color: #00ff00;
-    color: rgba(38, 166, 91, 0.5);
 }
 
 @keyframes blink {
@@ -138,6 +137,14 @@ button:hover {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+
+#battery.warning:not(.charging) { color: orange;
+                                   background: none;
+                                }
+
+#battery.warning.charging { color: green;
+                                   background: none;
+                                }
 
 label:focus {
     background-color: #000000;
