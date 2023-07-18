@@ -147,7 +147,7 @@ button:hover {
 #battery.moderate:not(.charging) { color: blue;
                                    background: none;
                                 }
-#battery.good.charging:not(.charging) { color: green;
+#battery.good:not(.charging) { color: green;
                                    background: none;
                                 }
 
