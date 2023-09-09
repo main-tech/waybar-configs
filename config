@@ -5,11 +5,11 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", ],
+    "modules-left": ["hyprland/workspaces", ],
    // "modules-center": ["sway/window"],
     "modules-right": [  "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "battery#bat2", "clock", "tray"],
      //Modules configuration
-     "wlr/workspaces": {
+     "hprland/workspaces": {
          "on-click": "activate",
          "disable-scroll": true,
          "all-outputs": true,
