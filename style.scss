@@ -5,8 +5,8 @@
 
 /* Rest of the CSS remains unchanged */
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  /* `otf-font-awesome` or hack node or the aother below are required to be installed for icons */
+  font-family: Hack Nerd, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   font-size: 13px;
 }
 
