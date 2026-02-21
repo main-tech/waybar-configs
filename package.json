@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/main-tech/waybar-configs#readme",
   "devDependencies": {
-    "node-sass": "^9.0.0"
+    "sass": "^1.97.3"
   }
 }
