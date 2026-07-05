@@ -1,10 +1,15 @@
-$bar-bg: rgba(17, 24, 31, 0.44);
-$surface: rgba(34, 45, 56, 0.46);
-$surface-hover: rgba(42, 57, 70, 0.58);
-$surface-active: rgba(38, 68, 78, 0.64);
-$accent: #64d8ff;
+$bar-bg: rgba(7, 10, 14, 0.86);
+$surface: rgba(18, 24, 31, 0.82);
+$surface-hover: rgba(31, 42, 52, 0.9);
+$surface-active: rgba(20, 76, 91, 0.92);
+$accent: #7bd86f;
 $text: #e8edf2;
-$text-muted: #aeb8c2;
+$text-muted: #c1ccd6;
+$border-light: rgba(234, 247, 255, 0.26);
+$border-soft: rgba(103, 190, 88, 0.28);
+$neon-line: rgba(123, 216, 111, 0.42);
+$neon-glow: rgba(82, 184, 72, 0.2);
+$outer-glow: rgba(103, 190, 88, 0.16);
 $danger: #f87171;
 $radius: 14px;
 $transition: 180ms ease-in-out;
@@ -28,14 +33,21 @@ window#waybar > box {
     margin: 8px 12px 0;
     padding: 6px;
     background: $bar-bg;
-    border: 1px solid rgba(232, 237, 242, 0.08);
+    border: 1px solid rgba(234, 247, 255, 0.16);
     border-radius: $radius;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    box-shadow:
+        inset 0 0 0 1px $neon-line,
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 -1px 0 rgba(103, 190, 88, 0.24),
+        inset 0 0 12px $neon-glow,
+        0 0 18px $outer-glow,
+        0 12px 28px rgba(0, 0, 0, 0.48),
+        0 3px 10px rgba(0, 0, 0, 0.38);
 }
 
 tooltip {
-    background: rgba(17, 24, 31, 0.86);
-    border: 1px solid rgba(100, 216, 255, 0.18);
+    background: rgba(7, 10, 14, 0.94);
+    border: 1px solid $border-soft;
     border-radius: $radius;
     color: $text;
 }
@@ -65,7 +77,12 @@ tooltip label {
     min-height: 28px;
     border-radius: $radius;
     background: $surface;
+    border: 1px solid rgba(234, 247, 255, 0.1);
     color: $text;
+    box-shadow:
+        inset 0 0 0 1px rgba(123, 216, 111, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.32);
     transition: background-color $transition, color $transition, box-shadow $transition, opacity $transition;
 }
 
@@ -79,6 +96,7 @@ tooltip label {
     min-width: 18px;
     border-radius: $radius;
     background: transparent;
+    border: 1px solid transparent;
     color: $text-muted;
     font-weight: 400;
     transition: background-color $transition, color $transition, box-shadow $transition, opacity $transition;
@@ -86,14 +104,23 @@ tooltip label {
 
 #workspaces button:hover {
     background: $surface-hover;
+    border-color: rgba(234, 247, 255, 0.18);
     color: $text;
 }
 
 #workspaces button.active {
-    background: $surface-active;
-    color: $accent;
-    font-weight: 500;
-    box-shadow: 0 0 16px rgba(100, 216, 255, 0.24);
+    background: rgba(123, 216, 111, 0.08);
+    border-color: rgba(146, 226, 126, 0.08);
+    color: #dcffc7;
+    font-weight: 600;
+    text-shadow:
+        0 0 8px rgba(123, 216, 111, 0.9),
+        0 0 18px rgba(123, 216, 111, 0.48);
+    box-shadow:
+        inset 0 0 10px rgba(123, 216, 111, 0.16),
+        0 0 14px rgba(103, 190, 88, 0.24),
+        0 0 34px rgba(103, 190, 88, 0.12),
+        0 3px 10px rgba(0, 0, 0, 0.38);
 }
 
 #workspaces button.urgent {
@@ -117,7 +144,11 @@ tooltip label {
 #tray:hover,
 #clock:hover {
     background: $surface-hover;
-    box-shadow: 0 0 16px rgba(100, 216, 255, 0.12);
+    border-color: rgba(234, 247, 255, 0.2);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 18px rgba(103, 190, 88, 0.14),
+        0 3px 10px rgba(0, 0, 0, 0.34);
 }
 
 #network.disconnected,
