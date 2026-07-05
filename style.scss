@@ -1,278 +1,143 @@
-/* Set the variable for opacity */
-$module-opacity: 1;
+$bar-bg: rgba(17, 24, 31, 0.44);
+$surface: rgba(34, 45, 56, 0.46);
+$surface-hover: rgba(42, 57, 70, 0.58);
+$surface-active: rgba(38, 68, 78, 0.64);
+$accent: #64d8ff;
+$text: #e8edf2;
+$text-muted: #aeb8c2;
+$danger: #f87171;
+$radius: 14px;
+$transition: 180ms ease-in-out;
 
-
-/* Rest of the CSS remains unchanged */
 * {
-
-    /* Symbols Nerd Font is the universal "patch" for all icons */
-    font-family: "Symbols Nerd Font", "Font Awesome 6 Free", Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "Font Awesome 7 Free", sans-serif;
     font-size: 13px;
+    font-weight: 400;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(5, 0, 0, 1);
-    border-bottom: 4px solid rgba(5, 0, 0, 0.9);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: 0.5s;
+    background: transparent;
+    color: $text;
 }
 
-window#waybar.hidden {
-    opacity: $module-opacity;
-    /* Use the variable here */
+window#waybar > box {
+    margin: 8px 12px 0;
+    padding: 6px;
+    background: $bar-bg;
+    border: 1px solid rgba(232, 237, 242, 0.08);
+    border-radius: $radius;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
 }
 
-window#waybar.termite {
-    background-color: #3F3F3F;
+tooltip {
+    background: rgba(17, 24, 31, 0.86);
+    border: 1px solid rgba(100, 216, 255, 0.18);
+    border-radius: $radius;
+    color: $text;
 }
 
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
+tooltip label {
+    padding: 8px 10px;
+    color: $text;
 }
 
-/* ... Rest of the CSS ... */
-button {
-    /* Use boxs-hadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
+.modules-left,
+.modules-center,
+.modules-right {
+    border-radius: $radius;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    // box-shadow: inset 0 -3px #ffffff;
+#workspaces,
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#backlight,
+#battery,
+#tray {
+    margin: 0 3px;
+    padding: 0 10px;
+    min-height: 28px;
+    border-radius: $radius;
+    background: $surface;
+    color: $text;
+    transition: background-color $transition, color $transition, box-shadow $transition, opacity $transition;
+}
+
+#workspaces {
+    padding: 0 4px;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #ffffff;
+    margin: 0 2px;
+    padding: 0 9px;
+    min-width: 18px;
+    border-radius: $radius;
+    background: transparent;
+    color: $text-muted;
+    font-weight: 400;
+    transition: background-color $transition, color $transition, box-shadow $transition, opacity $transition;
 }
 
 #workspaces button:hover {
-    // background: rgba(225, 78, 231, 0.2);
-    // box-shadow: inset 0 -3px #BA68C8;
-    color: rgba(225, 78, 231, 0.6);
-
+    background: $surface-hover;
+    color: $text;
 }
 
 #workspaces button.active {
-    // background-color: #7B1FA2;
-    // box-shadow: inset 0 -3px #4A148C;
-    color: rgb(255, 0, 255);
+    background: $surface-active;
+    color: $accent;
+    font-weight: 500;
+    box-shadow: 0 0 16px rgba(100, 216, 255, 0.24);
 }
 
 #workspaces button.urgent {
-    color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
-}
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#mpd {
-    padding: 0 10px;
-    color: #ffffff;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
+    color: $danger;
+    box-shadow: 0 0 14px rgba(248, 113, 113, 0.22);
 }
 
 #clock {
-    color: rgba(100, 114, 125, $module-opacity);
-    /* Use the variable here */
+    padding: 0 14px;
+    color: $text;
+    font-weight: 500;
+    letter-spacing: 0;
 }
 
-#battery {
-    color: rgba(255, 255, 255, $module-opacity);
-    /* Use the variable here */
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#backlight:hover,
+#battery:hover,
+#tray:hover,
+#clock:hover {
+    background: $surface-hover;
+    box-shadow: 0 0 16px rgba(100, 216, 255, 0.12);
 }
 
+#network.disconnected,
+#pulseaudio.muted,
+#battery.warning:not(.charging),
+#battery.critical:not(.charging) {
+    color: $danger;
+}
 
 #battery.charging,
 #battery.plugged {
-    color: #00ff00;
+    color: $accent;
 }
 
-@keyframes blink {
-    to {
-        color: #ffffff;
-        color: #000000;
-    }
-}
-
-#battery.critical:not(.charging) {
-    color: #ff0000;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#battery.warning:not(.charging) {
-    color: orange;
-    background: none;
-}
-
-#battery.warning.charging {
-    color: green;
-    background: none;
-}
-
-#battery.moderate:not(.charging) {
-    color: blue;
-    background: none;
-}
-
-#battery.good:not(.charging) {
-    color: green;
-    background: none;
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    color: rgba(46, 204, 113, $module-opacity);
-}
-
-#memory {
-    color: rgba(155, 89, 182, $module-opacity);
-
-}
-
-#disk {
-    color: rgba(150, 75, 0, $module-opacity);
-}
-
-#backlight {
-    color: rgba(144, 177, 177, $module-opacity);
-}
-
-#network {
-    color: rgba(41, 128, 185, $module-opacity);
-}
-
-#network.disconnected {
-    color: #f53c3c;
-}
-
-#pulseaudio {
-    color: rgba(241, 196, 15, $module-opacity);
-}
-
-#pulseaudio.muted {
-    color: rgba(144, 177, 177, $module-opacity);
-    color: #2a5c45;
-}
-
-#wireplumber {
-    color: rgba(255, 240, 245, $module-opacity);
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
-}
-
-#custom-media {
-    color: rgba(102, 204, 153, $module-opacity);
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    color: rgba(102, 204, 153, $module-opacity);
-}
-
-#custom-media.custom-vlc {
-    color: rgba(255, 160, 0, $module-opacity);
-}
-
-#temperature {
-    color: rgba(240, 147, 43, $module-opacity);
-}
-
-#temperature.critical {
-    color: #eb4d4b;
-}
-
-#tray {
-    color: rgba(41, 128, 185, $module-opacity);
-}
-
-#tray>.passive {
+#tray > .passive {
     -gtk-icon-effect: dim;
+    opacity: 0.72;
 }
 
-#tray>.needs-attention {
+#tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    color: rgba(45, 52, 54, $module-opacity);
-}
-
-#idle_inhibitor.activated {
-    color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    color: rgba(102, 204, 153, $module-opacity);
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    color: rgba(144, 177, 177, $module-opacity);
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, $module-opacity);
-}
-
-#scratchpad.empty {
-    background-color: transparent;
+    color: $danger;
 }
